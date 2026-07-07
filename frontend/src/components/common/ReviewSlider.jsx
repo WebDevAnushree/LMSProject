@@ -5,8 +5,7 @@ import Img from './Img';
 
 // Swiper imports
 import { Swiper, SwiperSlide } from "swiper/react"
-import { FreeMode, Autoplay } from "swiper/modules"   // ✅ FIX: was commented out
-
+import { FreeMode, Autoplay } from "swiper/modules"   
 // Swiper styles
 import "swiper/css"
 import "swiper/css/free-mode"
