@@ -60,7 +60,7 @@ export async function getAllInstructorDetails(token) {
 export async function updateUserApproval(token, userId, approved) {
   try {
     const response = await apiConnector(
-      "POST",               // ✅ Changed PATCH → POST to avoid CORS preflight blocking
+      "POST",              
       UPDATE_USER_APPROVAL_API,
       { userId, approved },
       { Authorization: `Bearer ${token}` }

@@ -103,8 +103,8 @@ exports.getCategoryPageDetails = async (req, res) => {
                 path: "courses",
                 match: { status: "Published" },
                 populate: [
-                    { path: "ratingAndReviews" },   // ✅ ratings populated
-                    { path: "instructor" },          // ✅ instructor populated
+                    { path: "ratingAndReviews" },   
+                    { path: "instructor" },          
                 ],
             })
             .exec()
@@ -136,8 +136,8 @@ exports.getCategoryPageDetails = async (req, res) => {
                 path: "courses",
                 match: { status: "Published" },
                 populate: [
-                    { path: "ratingAndReviews" },   // ✅ FIX: was missing before
-                    { path: "instructor" },          // ✅ FIX: was missing before
+                    { path: "ratingAndReviews" },  
+                    { path: "instructor" },          
                 ],
             })
             .exec()
@@ -149,7 +149,7 @@ exports.getCategoryPageDetails = async (req, res) => {
                 match: { status: "Published" },
                 populate: [
                     { path: "instructor" },
-                    { path: "ratingAndReviews" },   // ✅ FIX: was missing before
+                    { path: "ratingAndReviews" },  
                 ],
             })
             .exec()

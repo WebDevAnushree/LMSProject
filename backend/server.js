@@ -26,7 +26,6 @@ app.use(
     cors({
         origin: "*",
         credentials: true,
-        // ✅ Explicitly allow all methods including PATCH
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
     })

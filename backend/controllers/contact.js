@@ -331,19 +331,19 @@ exports.contactUs = async (req, res) => {
       });
     }
 
-    // 1️⃣ Confirmation email → user
-    await mailSender(
-      email,
-      '✅ We received your message – StudyNotion',
-      userConfirmationTemplate({ firstname, email, message })
-    );
-
-    // 2️⃣ Notification email → admin (you)
-    await mailSender(
-      'joshianushree1110@gmail.com',
-      `📬 New message from ${firstname} ${lastname || ''} – StudyNotion`,
-      adminNotificationTemplate({ firstname, lastname, email, phoneNo, countrycode, message })
-    );
+    // Send both emails in parallel instead of sequentially
+    await Promise.all([
+      mailSender(
+        email,
+        '✅ We received your message – StudyNotion',
+        userConfirmationTemplate({ firstname, email, message })
+      ),
+      mailSender(
+        'joshianushree1110@gmail.com',
+        `📬 New message from ${firstname} ${lastname || ''} – StudyNotion`,
+        adminNotificationTemplate({ firstname, lastname, email, phoneNo, countrycode, message })
+      )
+    ]);
 
     return res.status(200).json({
       success: true,
@@ -351,7 +351,7 @@ exports.contactUs = async (req, res) => {
     });
 
   } catch (error) {
-    console.log('Error in contactUs:', error);
+    console.log('Error in contactUs:', error.message);
     return res.status(500).json({
       success: false,
       message: 'Failed to send message',

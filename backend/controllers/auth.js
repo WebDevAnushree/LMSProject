@@ -100,7 +100,6 @@ exports.signup = async (req, res) => {
             contactNumber: null
         });
 
-        // ✅ Everyone is approved on signup
         const approved = true;
 
         await User.create({

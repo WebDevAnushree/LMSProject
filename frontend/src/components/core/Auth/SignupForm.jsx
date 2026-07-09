@@ -1,10 +1,8 @@
-
-
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
-import { useNavigate, useLocation } from "react-router-dom"   // ✅ added useLocation
+import { useNavigate, useLocation } from "react-router-dom"  
 
 import { sendOtp } from "../../../services/operations/authAPI"
 import { setSignupData } from "../../../slices/authSlice"
@@ -16,9 +14,9 @@ import Tab from "../../common/Tab"
 function SignupForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation();   // ✅ added
+  const location = useLocation();   
 
-  // ✅ pre-select Instructor tab if coming from "Add Instructor" button, else default to Student
+  
   const [accountType, setAccountType] = useState(
     location.state?.accountType || ACCOUNT_TYPE.STUDENT
   );

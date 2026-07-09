@@ -290,7 +290,7 @@ exports.getInstructorCourses = async (req, res) => {
     try {
         const instructorId = req.user.id
 
-        // ✅ Added populate for courseContent and subSection to get timeDuration
+       
         const instructorCourses = await Course.find({ instructor: instructorId })
             .populate({
                 path: "courseContent",
