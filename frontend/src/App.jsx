@@ -28,7 +28,7 @@ import Instructor from './components/core/Dashboard/Instructor';
 
 import Cart from "./components/core/Dashboard/Cart/Cart";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
-// ✅ Added PurchaseHistory import
+
 import PurchaseHistory from "./components/core/Dashboard/PurchaseHistory";
 import AddCourse from "./components/core/Dashboard/AddCourse/AddCourse";
 
@@ -106,17 +106,16 @@ function App() {
             </>
           )}
 
-          {/* ✅ Student Routes — added purchase-history */}
           {user?.accountType === ACCOUNT_TYPE.STUDENT && (
             <>
               <Route path="dashboard/cart" element={<Cart />} />
               <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
-              {/* ✅ This was missing — caused the 404 */}
+     
               <Route path="dashboard/purchase-history" element={<PurchaseHistory />} />
             </>
           )}
 
-          {/* ✅ Instructor Routes */}
+       
           {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
             <>
               <Route path="dashboard/instructor" element={<Instructor />} />
