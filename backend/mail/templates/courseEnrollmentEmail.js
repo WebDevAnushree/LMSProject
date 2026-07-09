@@ -67,7 +67,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
                 </div>
 
                 <div class="cta-wrap">
-                    <a class="cta" href="https://lms-project-delta-olive.vercel.app/dashboard/enrolled-courses">
+                    <a class="cta" href="https://lms-project-orcin-mu.vercel.app/dashboard/enrolled-courses">
                         Go to My Courses →
                     </a>
                 </div>

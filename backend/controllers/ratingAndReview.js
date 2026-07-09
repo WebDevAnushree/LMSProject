@@ -19,10 +19,7 @@ exports.createRating = async (req, res) => {
             });
         }
 
-        // ✅ FIX: fetch the full course document first
-        // Old code used a projection { studentsEnrolled: { $elemMatch } } which
-        // always returned the course doc (even when student wasn't enrolled),
-        // so the enrollment check never actually blocked anyone.
+  
         const courseDetails = await Course.findById(courseId);
 
         if (!courseDetails) {
@@ -32,7 +29,7 @@ exports.createRating = async (req, res) => {
             });
         }
 
-        // ✅ FIX: explicitly verify the user is in studentsEnrolled
+      
         const isEnrolled = courseDetails.studentsEnrolled.some(
             (id) => id.toString() === userId.toString()
         );
@@ -95,7 +92,7 @@ exports.getAverageRating = async (req, res) => {
     try {
         const courseId = req.body.courseId;
 
-        // ✅ FIX: guard against missing courseId before running aggregate
+ 
         if (!courseId) {
             return res.status(400).json({
                 success: false,

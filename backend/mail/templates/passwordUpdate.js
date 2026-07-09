@@ -66,7 +66,7 @@ exports.passwordUpdated = (email, name) => {
                 </div>
 
                 <div class="cta-wrap">
-                    <a class="cta" href="http://localhost:5173/login">Log in to your account</a>
+                    <a class="cta" href="https://lms-project-delta-olive.vercel.app/login">Log in to your account</a>
                 </div>
             </div>
 
