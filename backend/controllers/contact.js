@@ -183,7 +183,7 @@ const userConfirmationTemplate = ({ firstname, email, message }) => {
     <table cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
       <tr>
         <td style="background:#FFD60A;border-radius:8px;">
-          <a href="https://lms-project-8l3b75cf5-webdevanushrees-projects.vercel.app/"
+          <a href="https://lms-project-orcin-mu.vercel.app/"
              style="display:inline-block;padding:14px 36px;font-size:15px;
                     font-weight:700;color:#0f172a;text-decoration:none;">
             Visit StudyNotion →
