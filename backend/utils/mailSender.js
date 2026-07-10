@@ -1,35 +1,26 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_HOST,
-  port: Number(process.env.MAIL_PORT),
-  secure: Number(process.env.MAIL_PORT) === 465,
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS,
-  },
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 10000,
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-transporter.verify((err, success) => {
-  if (err) {
-    console.error("❌ SMTP connection failed:", err.message);
-  } else {
-    console.log("✅ SMTP server is ready to send emails");
-  }
-});
-
-// ✅ Export a function, not the transporter itself
 const mailSender = async (to, subject, html) => {
-  const info = await transporter.sendMail({
-    from: `"StudyNotion" <${process.env.MAIL_USER}>`,
-    to,
-    subject,
-    html,
-  });
-  return info;
+  try {
+    const { data, error } = await resend.emails.send({
+      from: "StudyNotion <onboarding@resend.dev>", 
+      to,
+      subject,
+      html,
+    });
+
+    if (error) {
+      console.error("❌ Resend error:", error);
+      throw new Error(error.message);
+    }
+
+    return data;
+  } catch (err) {
+    console.error("❌ mailSender failed:", err.message);
+    throw err;
+  }
 };
 
 module.exports = mailSender;
