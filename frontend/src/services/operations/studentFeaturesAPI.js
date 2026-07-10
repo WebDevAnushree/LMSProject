@@ -119,7 +119,7 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
             throw new Error(response.data.message);
         }
         toast.success("payment Successful, you are addded to the course");
-        navigate("/dashboard/enrolled-courses");
+        navigate("https://lms-project-po1iw733z-webdevanushrees-projects.vercel.app/dashboard/enrolled-courses");
         dispatch(resetCart());
     }
     catch (error) {
