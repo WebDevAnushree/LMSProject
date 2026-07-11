@@ -196,6 +196,6 @@ export function logout(navigate) {
     localStorage.removeItem("token")
     localStorage.removeItem("user")
     toast.success("Logged Out")
-    navigate("https://lms-project-po1iw733z-webdevanushrees-projects.vercel.app/")
+    navigate("https://lms-project-orcin-mu.vercel.app/")
   }
 }
