@@ -33,7 +33,7 @@ export function sendOtp(email, navigate) {
         throw new Error(response.data.message);
       }
 
-      navigate("https://lms-project-po1iw733z-webdevanushrees-projects.vercel.app/verify-email");
+      navigate("/verify-email");
       toast.success("OTP Sent Successfully");
     } catch (error) {
       console.log("SENDOTP API ERROR --> ", error);
@@ -69,7 +69,7 @@ export function signUp(accountType, firstName, lastName, email, password, confir
       }
 
       toast.success("Signup Successful");
-      navigate("https://lms-project-po1iw733z-webdevanushrees-projects.vercel.app/login");
+      navigate("/login");
     } catch (error) {
       console.log("SIGNUP API ERROR --> ", error);
       // toast.error(error.response.data.message);
@@ -114,7 +114,7 @@ export function login(email, password, navigate) {
 
       localStorage.setItem("user", JSON.stringify({ ...response.data.user, image: userImage }));
 
-      navigate("https://lms-project-po1iw733z-webdevanushrees-projects.vercel.app/dashboard/my-profile");
+      navigate("/dashboard/my-profile");
     } catch (error) {
       console.log("LOGIN API ERROR.......", error)
       toast.error(error.response?.data?.message)
@@ -175,7 +175,7 @@ export function resetPassword(password, confirmPassword, token, navigate) {
       }
 
       toast.success("Password Reset Successfully")
-      navigate("https://lms-project-po1iw733z-webdevanushrees-projects.vercel.app/login")
+      navigate("/login")
     } catch (error) {
       console.log("RESETPASSWORD ERROR............", error)
       toast.error(error.response?.data?.message)
@@ -196,6 +196,6 @@ export function logout(navigate) {
     localStorage.removeItem("token")
     localStorage.removeItem("user")
     toast.success("Logged Out")
-    navigate("https://lms-project-orcin-mu.vercel.app/")
+    navigate("/")
   }
 }
