@@ -16,15 +16,6 @@ import { PiNotebook } from "react-icons/pi"
 import { fetchCourseCategories } from './../../../services/operations/courseDetailsAPI';
 
 
-// const CatalogDropDown = ({ subLinks }) => {
-//     if (!subLinks) return
-
-//     return (
-//         <div>
-
-//         </div>
-//     )
-// }
 
 
 export default function MobileProfileDropDown() {

@@ -20,9 +20,9 @@ import { ratingsEndpoints } from "../../services/apis"
 
 
 function ReviewSlider() {
-    const [reviews, setReviews] = useState([])      // ✅ FIX: default [] not null
-    const [loading, setLoading] = useState(true)    // ✅ FIX: loading state
-    const [error, setError]     = useState(null)    // ✅ FIX: error state
+    const [reviews, setReviews] = useState([])      
+    const [loading, setLoading] = useState(true)    
+    const [error, setError]     = useState(null)  
     const truncateWords = 15
 
     useEffect(() => {
